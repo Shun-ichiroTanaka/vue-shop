@@ -1,15 +1,14 @@
 <template>
   <div id="app">
-    <Navbar></Navbar>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
 #app {
+  // text-align: center;
   color: #2c3e50;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  text-align: center;
+  font-family: "Nunito", sans-serif;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
