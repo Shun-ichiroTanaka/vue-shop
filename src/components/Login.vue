@@ -73,38 +73,63 @@
 </template>
 
 <script>
-import {fb} from '../firebase';
+import {
+  fb
+} from '../firebase';
 
 export default {
   name: "Login",
   props: {
     msg: String
   },
-  data(){
-      return {
-          name:null,
-          email:null,
-          password:null
-      }
+  data() {
+    return {
+      name: null,
+      email: null,
+      password: null
+    }
   },
   methods: {
-    register(){
+
+    login() {
+      fb.auth().signInWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          $('#login').modal('hide')
+          this.$router.replace('admin');
+        })
+        .catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);
+        });
+
+    },
+
+    register() {
+
       fb.auth().createUserWithEmailAndPassword(this.email, this.password)
-          .then((user) => {
-            $('#login').modal('hide')
-            this.$router.replace('admin');
-          })
-          .catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            if (errorCode == 'auth/weak-password') {
-              alert('パスワードをより強固にしてください。');
-            } else {
-              alert(errorMessage);
-            }
-            console.log(error);
-      });
+        .then((user) => {
+          $('#login').modal('hide')
+          this.$router.replace('admin');
+        })
+        .catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          if (errorCode == 'auth/weak-password') {
+            alert('パスワードをより強固にしてください。');
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);
+        });
+
     }
 
   }
