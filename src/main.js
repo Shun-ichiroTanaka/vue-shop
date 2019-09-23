@@ -1,8 +1,10 @@
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
 import jQuery from 'jquery';
 import {fb}   from './firebase'
+import VueFirestore from 'vue-firestore'
+require('firebase/firestore')
 
 
 window.$ = window.jQuery = jQuery;
