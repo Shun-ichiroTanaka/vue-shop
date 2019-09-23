@@ -99,7 +99,8 @@
 
 <script>
 import Hero from "@/components/Hero.vue";
-// import Products from "@/sections/Products.vue";
+import {fb} from '../firebase';
+import Products from "@/sections/Products.vue";
 
 export default {
   name: "admin",
@@ -110,15 +111,15 @@ export default {
     closeMenu() {
       $(".page-wrapper").toggleClass("toggled");
     },
-    // logout() {
-    //   fb.auth().signOut()
-    //     .then(() => {
-    //       this.$router.replace('/');
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // }
+    logout() {
+      fb.auth().signOut()
+        .then(() => {
+          this.$router.replace('/');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   },
 };
 </script>
