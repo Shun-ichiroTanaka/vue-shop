@@ -11,14 +11,14 @@
                   This site is made with Vue.js. The database uses FireBase and the server uses Heroku. Here are some of the products that will be of great help for all web developers.
                 </p>
                 <div class="hero-btn mt-5">
-                    <button class="btn custom-btn btn-primary mr-4">Explore</button>
+                    <button class="btn custom-btn btn-info mr-4">Explore</button>
                     <button class="btn custom-btn btn-outline-secondary">Products</button>
                 </div>
               </div>
             </div>
             <div class="col-md-7">
                 <div class="graphic">
-                    <img src="/img/svg/developer.svg" alt="" id="top-img">
+                    <img src="/img/svg/8.svg" alt="" id="top-img">
                 </div>
             </div>
           </div>
