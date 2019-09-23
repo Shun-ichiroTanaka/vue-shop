@@ -90,6 +90,10 @@ export default {
   methods: {
     register(){
       fb.auth().createUserWithEmailAndPassword(this.email, this.password)
+          .then((user) => {
+            $('#login').modal('hide')
+            this.$router.replace('admin');
+          })
           .catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
