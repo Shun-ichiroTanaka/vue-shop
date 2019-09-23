@@ -46,11 +46,11 @@
 
           <tbody>
             <tr v-for="product in products">
-              <td>{{ product.name }}</td>
-              <td>{{ product.price }}</td>
+              <td>{{ product.data().name }}</td>
+              <td>{{ product.data().price }}</td>
               <td>
                 <button class="btn btn-primary">Edit</button>
-                <button class="btn btn-danger">Delete</button>
+                <button @click="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -88,13 +88,26 @@ export default {
   },
 
   methods: {
+    deleteProduct(doc) {
+      if (confirm('本当に削除してよろしいですか？')) {
+
+        db.collection("products").doc(doc).delete().then(function () {
+          console.log("削除に成功しました！");
+        }).catch(function (error) {
+          console.error("Error removing document: ", error);
+        });
+
+      } else {
+      }
+    },
+
     readData() {
       // Firebaseからproductsデータの取得
       db.collection("products").get().then((querySnapshot) => {
 
         querySnapshot.forEach((doc) => {
 
-          this.products.push(doc.data());
+          this.products.push(doc);
         });
 
       });
