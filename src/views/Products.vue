@@ -49,7 +49,7 @@
               <td>{{ product.data().name }}</td>
               <td>{{ product.data().price }}</td>
               <td>
-                <button class="btn btn-primary">Edit</button>
+                <button @click="editProduct(product)" class="btn btn-primary">Edit</button>
                 <button @click="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
               </td>
             </tr>
@@ -57,6 +57,34 @@
 
         </table>
 
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Product</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group">
+            <input type="text" placeholder="Product Name" v-model="product.name" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Price" v-model="product.price" class="form-control">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button @click="updateProduct()" type="button" class="btn btn-primary">Save changes</button>
+        </div>
       </div>
     </div>
   </div>
@@ -82,13 +110,34 @@ export default {
       product: {
         name: null,
         price: null,
-      }
+      },
+      activeItem: null
 
     }
   },
 
   methods: {
+
+    updateProduct() {
+      db.collection("products").doc(this.activeItem).update(this.product)
+        .then(function () {
+          $('#editModal').modal('hide');
+          console.log("正常に更新されました！");
+        })
+        .catch(function (error) {
+          console.error("更新に失敗しました。", error);
+        });
+    },
+
+    editProduct(product) {
+      $('#editModal').modal('show');
+      // モーダルの中にプロダクトのデータを取得させる
+      this.product = product.data();
+      this.activeItem = product.id;
+    },
+
     deleteProduct(doc) {
+      // 削除
       if (confirm('本当に削除してよろしいですか？')) {
 
         db.collection("products").doc(doc).delete().then(function () {
@@ -97,8 +146,7 @@ export default {
           console.error("Error removing document: ", error);
         });
 
-      } else {
-      }
+      } else {}
     },
 
     readData() {
@@ -112,6 +160,7 @@ export default {
 
       });
     },
+
     saveData() {
       // Firebaseにデータの保存
       db.collection("products").add(this.product)
@@ -124,10 +173,13 @@ export default {
         });
 
     },
+
     reset() {
       // Object.assign(this.$data, this.$options.data.apply(this));
     }
+
   },
+
   created() {
     this.readData();
   },
