@@ -117,10 +117,19 @@ export default {
   },
 
   methods: {
-
+    watcher() {
+      db.collection("products").onSnapshot((querySnapshot) => {
+        this.products = [];
+        querySnapshot.forEach((doc) => {
+          this.products.push(doc);
+        });
+       });
+    },
     updateProduct() {
+      // 更新
       db.collection("products").doc(this.activeItem).update(this.product)
-        .then(function () {
+        .then(() => {
+          this.watcher();
           $('#editModal').modal('hide');
           console.log("正常に更新されました！");
         })
@@ -130,6 +139,7 @@ export default {
     },
 
     editProduct(product) {
+      // 編集
       $('#editModal').modal('show');
       // モーダルの中にプロダクトのデータを取得させる
       this.product = product.data();
