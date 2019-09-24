@@ -6,6 +6,7 @@ import {fb}   from './firebase'
 import VueFirestore from 'vue-firestore'
 require('firebase/firestore')
 
+Vue.use(VueFirestore)
 
 window.$ = window.jQuery = jQuery;
 
@@ -19,7 +20,7 @@ Vue.component('Navbar', require('./components/Navbar.vue').default);
 // Vue.component('mini-cart', require('./components/MiniCart.vue').default);
 // Vue.component('products-list', require('./sections/ProductList.vue').default);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 let app = '';
 
