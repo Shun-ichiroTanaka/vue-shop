@@ -2,17 +2,21 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import jQuery from 'jquery';
-import {fb}   from './firebase'
-import VueFirestore from 'vue-firestore'
-require('firebase/firestore')
-
-Vue.use(VueFirestore)
-
 window.$ = window.jQuery = jQuery;
-
 import 'popper.js';
 import 'bootstrap';
 import './assets/app.scss';
+import {fb}   from './firebase'
+
+
+// firestore
+import VueFirestore from 'vue-firestore'
+require('firebase/firestore')
+Vue.use(VueFirestore, {
+    key: 'id',         // the name of the property. Default is '.key'.
+    enumerable: true  //  whether it is enumerable or not. Default is true.
+})
+
 
 // アラート
 import Swal from 'sweetalert2';

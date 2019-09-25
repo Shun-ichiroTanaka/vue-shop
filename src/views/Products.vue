@@ -62,10 +62,12 @@
 
   <!-- Modal -->
   <div class="modal fade" id="product" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editLabel">Edit Product</h5>
+          <!-- 編集内容によってモーダルのタイトルを変える -->
+          <h5 class="modal-title" id="editLabel" v-if="modal == 'edit'">Edit Product</h5>
+          <h5 class="modal-title" id="editLabel" v-if="modal == 'new'">Register Product</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -107,6 +109,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- 編集内容によってモーダルの中身を変える -->
           <button @click="addProduct()" type="button" class="btn btn-info" v-if="modal == 'new'">Save changes</button>
           <button @click="updateProduct()" type="button" class="btn btn-primary" v-if="modal == 'edit'">Apply changes</button>
         </div>
