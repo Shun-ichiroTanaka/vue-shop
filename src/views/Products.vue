@@ -82,7 +82,7 @@
               </div>
 
               <div class="form-group">
-                <textarea name="description" class="form-control" placeholder="Product description" v-model='product.description' cols="30" rows="10"></textarea>
+                <vue-editor v-model="product.description"></vue-editor>
               </div>
             </div>
             <!-- product sidebar -->
@@ -91,15 +91,15 @@
               <hr>
 
               <div class="form-group">
-                <input type="text" placeholder="Product price" v-model="product.price" class="form-control">
+                <input type="text" placeholder="値段 (円)" v-model="product.price" class="form-control">
               </div>
 
               <div class="form-group">
-                <input type="text" placeholder="Product tags" v-model="product.tag" class="form-control">
+                <input type="text" placeholder="商品タグ" v-model="product.tag" class="form-control">
               </div>
 
               <div class="form-group">
-                <label for="product_image">Product Images</label>
+                <label for="product_image">商品画像</label>
                 <input type="file" @change="uploadImage()" class="form-control">
               </div>
 
@@ -122,19 +122,25 @@
 
 <script>
 import {
+  VueEditor
+} from "vue2-editor";
+
+import {
   fb,
   db
 } from '../firebase';
 
 export default {
   name: "Products",
+  components: {
+    VueEditor
+  },
   props: {
     msg: String
   },
 
   data() {
     return {
-      // products: [],
       product: {
         name: null,
         description: null,
@@ -158,6 +164,7 @@ export default {
 
     addNew() {
       this.modal = 'new';
+      // this.reset();
       $('#product').modal('show');
     },
     updateProduct() {
