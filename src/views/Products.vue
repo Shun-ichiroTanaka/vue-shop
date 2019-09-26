@@ -96,12 +96,23 @@
               </div>
 
               <div class="form-group">
-                <input type="text" @keyup.188="addTag" placeholder="Product tags" v-model="tag" class="form-control">
+                <input type="text" @keyup.13="addTag" placeholder="Product tags" v-model="tag" class="form-control">
+                <div class="d-flex">
+                  <p v-for="tag in product.tags" class="h-10">
+                    <span class="p-1">{{ tag }},</span>
+                  </p>
+                </div>
               </div>
 
               <div class="form-group">
                 <label for="product_image">Product Images</label>
                 <input type="file" @change="uploadImage" class="form-control">
+              </div>
+
+              <div class="form-group d-flex">
+                <div class="p-1" v-for="image in product.images">
+                  <img :src="image" alt="" width="80px">
+                </div>
               </div>
 
             </div>
@@ -147,7 +158,7 @@ export default {
         description: null,
         price: null,
         tags: [],
-        image: null
+        images: []
       },
       activeItem: null,
       modal: null,
@@ -182,7 +193,7 @@ export default {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-          this.product.image = downloadURL;
+          this.product.images.push(downloadURL);
           console.log('File available at', downloadURL);
         });
       });
