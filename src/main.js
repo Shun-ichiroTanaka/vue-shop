@@ -1,17 +1,22 @@
 import Vue from "vue";
+import VueFirestore from 'vue-firestore'
+import {fb}   from './firebase'
 import App from "./App.vue";
 import router from "./router";
+
 import jQuery from 'jquery';
-window.$ = window.jQuery = jQuery;
 import 'popper.js';
 import 'bootstrap';
 import './assets/app.scss';
-import {fb}   from './firebase'
+import Swal from 'sweetalert2';
+
+require('firebase/firestore')
+window.$ = window.jQuery = jQuery;
+window.Swal = Swal;
+window.Toast = Toast;
 
 
 // firestore
-import VueFirestore from 'vue-firestore'
-require('firebase/firestore')
 Vue.use(VueFirestore, {
     key: 'id',         // the name of the property. Default is '.key'.
     enumerable: true  //  whether it is enumerable or not. Default is true.
@@ -19,8 +24,6 @@ Vue.use(VueFirestore, {
 
 
 // アラート
-import Swal from 'sweetalert2';
-window.Swal = Swal;
 // アラート後のポップ
 const Toast = Swal.mixin({
   toast: true,
@@ -28,7 +31,6 @@ const Toast = Swal.mixin({
   showConfirmButton: false,
   timer: 3000
 })
-window.Toast = Toast;
 
 
 Vue.component('Navbar', require('./components/Navbar.vue').default);

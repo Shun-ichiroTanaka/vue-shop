@@ -1,6 +1,8 @@
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import * as firebase from 'firebase';
-import 'firebase/firestore';
+import 'firebase/firestore'
+import 'firebase/firebase-auth'
+import 'firebase/storage'
 
 // Your web app's Firebase configuration
 var config = {

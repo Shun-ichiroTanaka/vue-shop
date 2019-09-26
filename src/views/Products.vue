@@ -72,6 +72,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <div class="modal-body">
 
           <div class="row">
@@ -91,16 +92,16 @@
               <hr>
 
               <div class="form-group">
-                <input type="text" placeholder="値段 (円)" v-model="product.price" class="form-control">
+                <input type="text" placeholder="Product price" v-model="product.price" class="form-control">
               </div>
 
               <div class="form-group">
-                <input type="text" placeholder="商品タグ" v-model="product.tag" class="form-control">
+                <input type="text" @keyup.188="addTag" placeholder="Product tags" v-model="tag" class="form-control">
               </div>
 
               <div class="form-group">
-                <label for="product_image">商品画像</label>
-                <input type="file" @change="uploadImage()" class="form-control">
+                <label for="product_image">Product Images</label>
+                <input type="file" @change="uploadImage" class="form-control">
               </div>
 
             </div>
@@ -109,10 +110,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <!-- 編集内容によってモーダルの中身を変える -->
-          <button @click="addProduct()" type="button" class="btn btn-info" v-if="modal == 'new'">Save changes</button>
+          <button @click="addProduct()" type="button" class="btn btn-primary" v-if="modal == 'new'">Save changes</button>
           <button @click="updateProduct()" type="button" class="btn btn-primary" v-if="modal == 'edit'">Apply changes</button>
         </div>
+
       </div>
     </div>
   </div>
@@ -124,7 +125,6 @@
 import {
   VueEditor
 } from "vue2-editor";
-
 import {
   fb,
   db
@@ -141,15 +141,17 @@ export default {
 
   data() {
     return {
+      products: [],
       product: {
         name: null,
         description: null,
         price: null,
-        tag: null,
+        tags: [],
         image: null
       },
       activeItem: null,
-      modal: null
+      modal: null,
+      tag: null
     }
   },
 
@@ -160,11 +162,35 @@ export default {
   },
   methods: {
 
-    uploadImage() {},
+    addTag() {
+      this.product.tags.push(this.tag);
+      this.tag = "";
+    },
+    uploadImage(e) {
+
+      let file = e.target.files[0];
+
+      var storageRef = fb.storage().ref('products/' + file.name);
+
+      let uploadTask = storageRef.put(file);
+
+      uploadTask.on('state_changed', (snapshot) => {
+
+      }, (error) => {
+        // Handle unsuccessful uploads
+      }, () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+          this.product.image = downloadURL;
+          console.log('File available at', downloadURL);
+        });
+      });
+
+    },
 
     addNew() {
       this.modal = 'new';
-      // this.reset();
       $('#product').modal('show');
     },
     updateProduct() {
@@ -190,7 +216,7 @@ export default {
         text: "You won't be able to revert this!",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#19a2b8',
+        confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
