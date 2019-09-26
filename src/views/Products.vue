@@ -110,8 +110,11 @@
               </div>
 
               <div class="form-group d-flex">
-                <div class="p-1" v-for="image in product.images">
-                  <img :src="image" alt="" width="80px">
+                <div class="p-1" v-for="(image, index) in product.images">
+                  <div class="img-wrapp">
+                    <img :src="image" alt="" width="80px">
+                    <span class="delete-img" @click="deleteImage(image,index)">×</span>
+                  </div>
                 </div>
               </div>
 
@@ -172,6 +175,17 @@ export default {
     }
   },
   methods: {
+    deleteImage(img, index) {
+      let image = fb.storage().refFromURL(img);
+
+      this.product.images.splice(index, 1);
+      image.delete().then(function () {
+        console.log('image deleted');
+      }).catch(function (error) {
+        // Uh-oh, an error occurred!
+        console.log('an error occurred');
+      });
+    },
 
     addTag() {
       this.product.tags.push(this.tag);
@@ -268,6 +282,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+.img-wrapp {
+  position: relative;
+}
 
+.img-wrapp span.delete-img {
+  position: absolute;
+  top: -14px;
+  left: -2px;
+}
+
+.img-wrapp span.delete-img:hover {
+  cursor: pointer;
+}
 </style>
