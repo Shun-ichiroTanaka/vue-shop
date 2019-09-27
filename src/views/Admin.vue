@@ -20,10 +20,8 @@
             <img class="img-responsive img-rounded" src="/img/user.svg" alt="User picture">
           </div>
           <div class="user-info">
-            <span class="user-name">Jhon
-              <strong>Smith</strong>
-            </span>
-            <!-- <span class="user-role"> {{ email }} </span> -->
+            <span class="user-name">{{ name }}</span>
+            <span class="user-role"> {{ email }} </span>
             <span class="user-status">
               <i class="fa fa-circle"></i>
               <span>Online</span>
@@ -104,6 +102,12 @@ import Products from "@/sections/Products.vue";
 
 export default {
   name: "admin",
+  data(){
+    return{
+      name: null
+    }
+  },
+
   components: {
     Hero
   },
@@ -121,6 +125,11 @@ export default {
         });
     }
   },
+  created(){
+    var user = fb.auth().currentUser;
+    this.name = user.displayName;
+    this.email = user.email;
+  }
 };
 </script>
 

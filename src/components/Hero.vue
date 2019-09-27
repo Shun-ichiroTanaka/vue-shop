@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-7">
                 <div class="graphic">
-                    <img src="/img/svg/19.svg" alt="" id="top-img">
+                    <img src="/img/svg/20.svg" alt="" id="top-img">
                 </div>
             </div>
           </div>
