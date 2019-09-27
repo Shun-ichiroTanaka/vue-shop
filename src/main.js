@@ -24,7 +24,6 @@ import './assets/app.scss';
 
 
 import Swal from 'sweetalert2';
-
 window.Swal = Swal;
 
 const Toast = Swal.mixin({
@@ -38,6 +37,12 @@ window.Toast = Toast;
 
 
 Vue.component('Navbar', require('./components/Navbar.vue').default);
+Vue.component('products-list', require('./sections/ProductList.vue').default);
+
+// カルーセル
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
+
 
 Vue.config.productionTip = false;
 

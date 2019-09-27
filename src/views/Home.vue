@@ -1,7 +1,10 @@
 <template>
 <div class="home">
-  <Navbar></Navbar>
-  <Hero />
+  <div class="maxvh">
+    <Navbar></Navbar>
+    <Hero />
+  </div>
+
   <products-list></products-list>
 
   <div class="container h-100">

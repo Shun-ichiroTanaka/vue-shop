@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="navvh">
    <nav class="navbar custom-nav fixed-top navbar-expand-lg navbar-light bg-light">
      <div class="container">
         <router-link class="navbar-brand" to="/">E-Gadget</router-link>

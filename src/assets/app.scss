@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./admin.scss";
+@import "./reset.scss";
 
 body {
   font-family: "Nunito", sans-serif !important;
@@ -10,4 +11,17 @@ body {
 
 #top-img {
   max-width: 700px;
+}
+
+.maxvh {
+  height: 100vh;
+}
+.navvh {
+  height: 10vh;
+}
+.ninevh {
+  height: 90vh;
+}
+.p-c_box {
+  max-height: 300px;
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="hero">
-        <div class="container h-100">
-          <div class="row h-100 justify-content-center align-items-center">
+        <div class="container">
+          <div class="row justify-content-center align-items-center">
             <div class="col-md-5">
               <div class="hero-content">
                 <h1 class="hero-title">
@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-7">
                 <div class="graphic">
-                    <img src="/img/svg/20.svg" alt="" id="top-img">
+                    <img src="/img/svg/11.svg" alt="" id="top-img">
                 </div>
             </div>
           </div>
@@ -40,7 +40,7 @@ export default {
   .hero {
   width: 100%;
   height: 500px;
-  padding-top: 7rem;
+  padding-top: 3rem;
   text-align: left;
 }
 </style>

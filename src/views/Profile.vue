@@ -4,18 +4,19 @@
 
     <div class="intro h-100">
       <div class="row h-100 align-items-center">
-        <div class="col-md-6 ml-3">
+        <div class="col-md-6 ml-5">
           <h3>Profile settings</h3>
 
           <p>
             Change your profile settings here
           </p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 ml-4">
           <img src="/img/svg/8.svg" width="300" alt="" class="img-fluid">
         </div>
       </div>
     </div>
+
 
     <div class="profile-content">
 

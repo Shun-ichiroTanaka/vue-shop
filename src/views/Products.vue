@@ -3,22 +3,22 @@
   <div class="container">
 
     <div class="intro h-100">
-      <div class="row h-100 justify-content-center align-items-center">
-        <div class="col-md-6">
+      <div class="row h-100 align-items-center">
+        <div class="col-md-6 ml-5">
           <h3>Products Page</h3>
 
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, ducimus.
+            Change your profile settings here
           </p>
         </div>
-        <div class="col-md-6">
-          <img src="/img/svg/2.svg" alt="" class="img-fluid">
+        <div class="col-md-5 ml-4">
+          <img src="/img/svg/25.svg" width="300" alt="" class="img-fluid">
         </div>
       </div>
     </div>
 
-    <hr>
 
+<br>
     <div class="product-test">
 
       <h3 class="d-inline-block">Products list</h3>
