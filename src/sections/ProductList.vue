@@ -15,8 +15,15 @@
 
           <div class="card-body">
             <h5 class="card-title">{{ product.name }}</h5>
-
-            <a href="#" class="btn btn-primary btn-add_cart">Add to Cart</a>
+            <div class="d-flex justify-content-between">
+              <h6 class="card-priceS">¥ {{ product.price }}</h6>
+              <add-to-cart
+              :product-image="getImage(product.images)"
+              :product-id="product.id"
+              :price="product.price"
+              :name="product.name">
+              </add-to-cart>
+            </div>
           </div>
         </div>
       </div>
@@ -43,6 +50,14 @@ export default {
       products: [],
 
     }
+  },
+
+  methods: {
+
+    getImage(images) {
+      return images[0];
+    }
+
   },
 
   firestore() {
@@ -79,13 +94,17 @@ export default {
 
   object-fit: contain !important;
 }
+
 .card-body {
   max-height: 200px;
 }
+
 .card-title {
   display: block;
+  padding-right: 10px;
   margin-bottom: 50px;
 }
+
 .btn-add_cart {
   position: absolute;
   right: 15px;

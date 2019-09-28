@@ -37,11 +37,17 @@ window.Toast = Toast;
 
 
 Vue.component('Navbar', require('./components/Navbar.vue').default);
+Vue.component('add-to-cart', require('./components/AddToCart.vue').default);
+// Vue.component('mini-cart', require('./components/MiniCart.vue').default);
 Vue.component('products-list', require('./sections/ProductList.vue').default);
 
 // カルーセル
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);
+
+// 画像ズーム
+import ZoomOnHover from "vue-zoom-on-hover";
+Vue.use(ZoomOnHover);
 
 
 Vue.config.productionTip = false;
