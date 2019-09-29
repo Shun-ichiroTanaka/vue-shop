@@ -18,13 +18,17 @@ Vue.use(VueFirestore)
 
 window.$ = window.jQuery = jQuery;
 
+
 import 'popper.js';
 import 'bootstrap';
 import './assets/app.scss';
 
 
+
 import Swal from 'sweetalert2';
 window.Swal = Swal;
+
+
 
 const Toast = Swal.mixin({
   toast: true,
@@ -32,8 +36,10 @@ const Toast = Swal.mixin({
   showConfirmButton: false,
   timer: 3000
 });
-
 window.Toast = Toast;
+
+
+import store from './store.js';
 
 
 Vue.component('Navbar', require('./components/Navbar.vue').default);
@@ -59,6 +65,7 @@ fb.auth().onAuthStateChanged(function(user) {
   if(!app){
     new Vue({
       router,
+      store,
       render: h => h(App)
     }).$mount("#app");
 
