@@ -3,15 +3,28 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-      // モジュールシステムを利用しているときはあらかじめ Vue.use(Vuex) を呼び出していることを確認しておいてください
     state: {
       cart:[]
     },
 
-    mutations: {
+    mutations:{
+
       addToCart(state, item){
-        state.cart.push(item);
-      }
+
+        let found = state.cart.find(product => product.productId == item.productId );
+
+        if(found){
+          found.productQuantity++;
+        }else{
+          state.cart.push(item);
+
+        }
+
+      },
+
+
+
+
     }
 
-  });
+  })
