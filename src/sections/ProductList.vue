@@ -17,11 +17,7 @@
             <h5 class="card-title">{{ product.name }}</h5>
             <div class="d-flex justify-content-between">
               <h6 class="card-priceS">¥ {{ product.price }}</h6>
-              <add-to-cart
-              :product-image="getImage(product.images)"
-              :p-id="product.id"
-              :price="product.price"
-              :name="product.name">
+              <add-to-cart :image="getImage(product.images)" :p-id="product.id" :price="product.price" :name="product.name">
               </add-to-cart>
             </div>
           </div>

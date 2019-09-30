@@ -15,20 +15,19 @@ Vue.use(VueFirestore, {
 
 Vue.use(VueFirestore)
 
+import Vue2Filters from 'vue2-filters'
+Vue.use(Vue2Filters)
 
 window.$ = window.jQuery = jQuery;
-
 
 import 'popper.js';
 import 'bootstrap';
 import './assets/app.scss';
 
 
-
 import Swal from 'sweetalert2';
+
 window.Swal = Swal;
-
-
 
 const Toast = Swal.mixin({
   toast: true,
@@ -36,7 +35,9 @@ const Toast = Swal.mixin({
   showConfirmButton: false,
   timer: 3000
 });
+
 window.Toast = Toast;
+
 
 
 import store from './store.js';
@@ -47,14 +48,8 @@ Vue.component('add-to-cart', require('./components/AddToCart.vue').default);
 Vue.component('mini-cart', require('./components/MiniCart.vue').default);
 Vue.component('products-list', require('./sections/ProductList.vue').default);
 
-// カルーセル
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);
-
-// 画像ズーム
-import ZoomOnHover from "vue-zoom-on-hover";
-Vue.use(ZoomOnHover);
-
 
 Vue.config.productionTip = false;
 
@@ -71,5 +66,7 @@ fb.auth().onAuthStateChanged(function(user) {
 
   }
 
-
 });
+
+
+

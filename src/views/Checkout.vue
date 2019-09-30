@@ -13,7 +13,7 @@
                         <img :src="item.productImage" width="80px" class="align-self-center mr-3" alt="">
                         <div class="media-body">
                             <h5 class="mt-0">{{item.productName}}</h5>
-                            <p class="mt-0">{{item.productPrice | currency}}</p>
+                            <p class="mt-0">{{item.productPrice }}</p>
                             <p class="mt-0">Quantity : {{item.productQuantity }}</p>
                         </div>
                         </li>
