@@ -9,7 +9,7 @@
       <div class="sidebar-content">
         <!-- sidebar-brand  -->
         <div class="sidebar-item sidebar-brand">
-          <a href="#">E-Gadget Admin-Panel</a>
+          <router-link to="/">JapanShip- JS Tutorial</router-link>
           <div id="close-sidebar" @click="closeMenu">
             <i class="fas fa-times"></i>
           </div>
@@ -48,24 +48,24 @@
               <span>Menu</span>
             </li>
 
-            <li>
+            <!-- <li>
               <router-link to="/admin/overview">
                 <i class="fa fa-chart-line"></i>
                 <span>Overview</span>
               </router-link>
-            </li>
+            </li> -->
             <li>
               <router-link to="/admin/products">
                 <i class="fab fa-amazon"></i>
-                <span>Products</span>
+                <span>Your Tutorials</span>
               </router-link>
             </li>
-            <li>
+            <!-- <li>
               <router-link to="/admin/orders">
                 <i class="fa fa-shopping-cart"></i>
                 <span>Orders</span>
               </router-link>
-            </li>
+            </li> -->
 
             <li>
               <router-link to="/admin/profile">
@@ -109,7 +109,6 @@ export default {
   },
 
   components: {
-    Hero
   },
   methods: {
     closeMenu() {

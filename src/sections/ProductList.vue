@@ -1,7 +1,7 @@
 <template>
 <div class="products" id="products">
   <div class="container">
-    <h1 class="text-center pt-5 pb-4">Our Products List</h1>
+    <h1 class="text-center pt-5 pb-4">All Tutorials</h1>
     <div class="row">
 
       <div class="col-md-4" v-for="product in products">

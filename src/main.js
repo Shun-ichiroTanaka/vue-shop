@@ -12,7 +12,6 @@ Vue.use(VueFirestore, {
   enumerable: true  //  whether it is enumerable or not. Default is true.
 })
 
-
 Vue.use(VueFirestore)
 
 import Vue2Filters from 'vue2-filters'
@@ -37,8 +36,6 @@ const Toast = Swal.mixin({
 });
 
 window.Toast = Toast;
-
-
 
 
 

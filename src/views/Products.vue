@@ -5,10 +5,10 @@
     <div class="intro h-100">
       <div class="row h-100 align-items-center">
         <div class="col-md-6 ml-5">
-          <h3>Products Page</h3>
+          <h3>Tutorials Page</h3>
 
           <p>
-            Change your profile settings here
+            チュートリアルを作成して販売する
           </p>
         </div>
         <div class="col-md-5 ml-4">
@@ -22,7 +22,7 @@
     <div class="product-test">
 
       <h3 class="d-inline-block">Products list</h3>
-      <button @click="addNew" class="btn btn-primary float-right">Add Product</button>
+      <button @click="addNew" class="btn btn-primary float-right">Add Tutorial</button>
 
       <div class="table-responsive">
 
@@ -66,8 +66,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <!-- 編集内容によってモーダルのタイトルを変える -->
-          <h5 class="modal-title" id="editLabel" v-if="modal == 'edit'">Edit Product</h5>
-          <h5 class="modal-title" id="editLabel" v-if="modal == 'new'">Register Product</h5>
+          <h5 class="modal-title" id="editLabel" v-if="modal == 'edit'">Edit Tutorial</h5>
+          <h5 class="modal-title" id="editLabel" v-if="modal == 'new'">Register Tutorial</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

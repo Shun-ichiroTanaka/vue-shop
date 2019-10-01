@@ -1,9 +1,9 @@
 <template>
-<div class="add-to-cart">
+  <div class="add-to-cart">
 
-  <button class="btn btn-primary" @click="addToCart"> Add to Cart </button>
+        <button class="btn btn-primary" @click="addToCart"> Add to Cart </button>
 
-</div>
+  </div>
 </template>
 
 <script>
@@ -16,20 +16,20 @@ export default {
     pId: String
   },
 
-  data() {
-    return {
-      item: {
-        productName: this.name,
-        productImage: this.image,
-        productPrice: this.price,
-        productId: this.pId,
-        productQuantity: 1,
-      }
+  data(){
+      return {
+          item :{
+            productName: this.name,
+            productImage: this.image,
+            productPrice: this.price,
+            productId: this.pId,
+            productQuantity: 1,
+          }
 
-    }
+      }
   },
-  methods: {
-    addToCart() {
+  methods:{
+    addToCart(){
       $('#miniCart').modal('show');
       this.$store.commit('addToCart', this.item)
     }
@@ -39,8 +39,9 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
 </style>

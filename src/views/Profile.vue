@@ -8,7 +8,7 @@
           <h3>Profile settings</h3>
 
           <p>
-            Change your profile settings here
+            プロフィールの設定
           </p>
         </div>
         <div class="col-md-5 ml-4">

@@ -10,14 +10,16 @@
   <div class="container h-100">
     <div class="row p-5 h-100 justify-content-center align-items-center">
       <div class="col-md-6">
-        <img src="/img/svg/11.svg" alt="" width="400">
+        <img src="/img/svg/28.svg" alt="" width="400">
       </div>
       <div class="col-md-6">
-        <h3>Learn More About us</h3>
+        <h3>Learn More About Me</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quaerat voluptate iusto? Nihil voluptas vitae veritatis magnam reprehenderit, reiciendis ex? Libero quasi natus veniam voluptatum, voluptas exercitationem ratione consectetur et!
+          このアプリケーションはFirebaseとVue.jsで作成されており、決済システムはStripeを使用しています。
+          決済はテストユーザーとして行われるため実際には購入はされません。Javascriptのチュートリアルだけをまとめた
+          「Note」のような販売サイトが理想です。
         </p>
-        <button class="btn custom-btn btn-outline-warning mr-4">Browse Products</button>
+        <button class="btn custom-btn btn-outline-secondary mr-4">Browse Products</button>
       </div>
     </div>
   </div>

@@ -5,20 +5,22 @@
             <div class="col-md-5">
               <div class="hero-content">
                 <h1 class="hero-title">
-                  Gadget Shop For Developers
+                  Javascript Tutorial
+                   For Developers
                 </h1>
                 <p>
-                  This site is made with Vue.js. The database uses FireBase and the server uses Heroku. Here are some of the products that will be of great help for all web developers.
+                  Javascript を学ぶ全ての人たちに役立つ素晴らしいチュートリアルを届けよう
                 </p>
                 <div class="hero-btn mt-5">
-                    <button class="btn custom-btn btn-primary mr-4">Explore</button>
-                    <button class="btn custom-btn btn-outline-secondary">Products</button>
+                    <!-- <button class="btn custom-btn btn-primary mr-4">Explore</button> -->
+                    <a class="btn custom-btn btn-primary mr-4 start-btn" data-toggle="modal" data-target="#login">はじめる</a>
+                    <button class="btn custom-btn btn-outline-secondary">Tutorials</button>
                 </div>
               </div>
             </div>
             <div class="col-md-7">
                 <div class="graphic">
-                    <img src="/img/svg/10.svg" alt="" id="top-img">
+                    <img src="/img/svg/11.svg" alt="" id="top-img">
                 </div>
             </div>
           </div>
@@ -40,7 +42,10 @@ export default {
   .hero {
   width: 100%;
   height: 500px;
-  padding-top: 3rem;
+  padding-top: 0rem;
   text-align: left;
+}
+.start-btn {
+  color: white !important;
 }
 </style>
