@@ -21,7 +21,7 @@
     "firebase-functions": "^3.2.0",
     "firebase-tools": "^7.3.2",
     "hooper": "^0.3.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.15.0",
     "stripe": "^7.9.1",
     "sweetalert2": "^8.17.6",
